@@ -129,3 +129,17 @@ Cypress.Commands.add('compareFirstAndLastScore', () => {
 		})
 
 })
+
+
+Cypress.Commands.add('visitRandomPage', () => {
+	cy.visit(FRONT_BASE_URL)
+
+	cy.contains('Random').click()
+
+	cy.url().should('equal', `${FRONT_BASE_URL}/random`)
+})
+
+
+Cypress.Commands.add('verifyExistentRecommendation', () => {
+	cy.get('article').should('be.visible')
+})
